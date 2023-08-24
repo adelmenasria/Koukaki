@@ -1,0 +1,9 @@
+/* Footer */
+.site-footer {
+  flex-direction: column;
+}
+
+.site-footer::before,
+.site-footer::after {
+  display: none;
+}

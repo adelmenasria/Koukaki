@@ -1,0 +1,127 @@
+.site-header {
+
+  .navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    background-color: $header-bg;
+    .site-title {
+      font-family: $font-titles;
+      font-size: 21px;
+      text-decoration: none;
+    }
+
+    @import 'hamburger';
+  }
+
+  .menu-overlay {
+    position: absolute;
+    z-index: 1;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    padding-top: 43px;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s, visibility 0.6s;
+    background: $main-bg-cream;
+
+    &::before{
+      content: url('../img/orchid.png');
+      position: absolute;
+      left: -56px; top: 7%;
+    }
+
+    &::after{
+      content: url('../img/hibiscus.png');
+      position: absolute;
+      bottom: -290px; right: -325px;
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 60px;
+
+      &::before{
+        content: url('../img/cat-yellow-menu.png');
+        position: absolute;
+        left: 8%; bottom: 16%;
+        animation: flotter 3.2s ease-in-out 0.2s infinite;
+      }
+
+      &::after{
+        content: url('../img/random_flower.png');
+        position: absolute;
+        right: -28px; top: 35%;
+      }
+
+      .logo-small{margin-bottom: 40px;}
+      .nav{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        margin: 0;
+        padding-left: 0;
+        font-family: $font-main;
+        font-size: 64px;
+        list-style: none;
+        text-align: center;
+
+        &::before{
+          content: url('../img/cat-purple-menu.png');
+          animation: flotter 3s ease-in-out 0s infinite;
+          position: absolute;
+          left: -36%;
+          top: -16%;
+        }
+
+        &::after{
+          content: url('../img/sunflower-m.png');
+          position: absolute;
+          right: -54%;
+          top: -40%;
+        }
+
+        .nav-item{
+          &:hover{text-shadow: 0px 0px 14px #FF5C00;}
+          .nav-link{text-decoration: none;}
+          .nav-link:hover{color: black;}
+        }
+      }
+    }
+
+    .menu-footer{
+      padding-bottom: 15px;
+      text-transform: uppercase;
+      text-align: center;
+
+      &::before{
+        content: url('../img/flower.png');
+        position: absolute;
+        left: 15%;
+        top: 50%;
+      }
+
+      &::after{
+        content: url('../img/cat-black-menu.png');
+        position: absolute;
+        right: 13%;
+        bottom: 41%;
+        animation: flotter 2.8s ease-in-out 0.4s infinite;
+      }
+    }
+  }
+
+  #menu-overlay.show {
+    opacity: 1;
+    visibility: visible;
+    /* width: 100%;
+    height: 100%; */
+  }
+}

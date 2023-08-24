@@ -1,0 +1,66 @@
+/* All Animations Keyframes */
+@keyframes rotate {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}
+
+@keyframes fade-in {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+/*
+@keyframes fade-out {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+*/
+
+@keyframes fade-in-down {
+  from {opacity:0; transform: translateY(-250px);}
+  to {opacity:1; transform: translateY(0);}
+}
+
+@keyframes fade-in-up {
+  from {opacity: 0; transform: translateY(100px);}
+  to {opacity: 1; transform: translateY(0);}
+} 
+
+
+@keyframes words-up {
+  from {transform: translateY(100%);}
+  to {transform: translateY(0);}
+}
+
+@keyframes flotter {
+  0% {transform: translateY(0);}
+  50% {transform: translateY(-10px);}
+  100% {transform: translateY(0);}
+}
+
+
+/* Animations Class declarations */
+.fade-in-down {animation: fade-in-down 2s forwards;}
+.fade-in-up {animation: fade-in-up 2s forwards, flotter 3.2s ease-in-out 2s infinite;}
+
+/* Animation title-reveal */
+.title-reveal-container {overflow: hidden;}
+
+.word {
+  display: inline-block;
+  transform: translateY(106px);
+}
+
+/* Appliquer l'animation à chaque mot */
+/* .title-reveal est généré par JS lorsque .title-reveal-scope (le parent) entre dans le viewport.
+** Cela permet de lancer l'animation au bon moment et de contrôler jusqu'a deux mots.
+*/
+.title-reveal .word:nth-child(1) {animation: words-up 1s forwards 1.5s;}
+.title-reveal .word:nth-child(2) {animation: words-up 1s forwards 2s;}
+
+/* Fade-in apparition loading on scroll */
+.fade-in {
+  opacity: 0;
+  transition: opacity 1.4s ease-out; /* animation douce */
+}
+.fade-in.fade-in-visible {opacity: 1;}

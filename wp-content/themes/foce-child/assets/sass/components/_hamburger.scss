@@ -1,0 +1,60 @@
+/* Main button */
+.navbar-toggler-wrapper{
+  position: absolute;
+  right: 132px;
+}
+
+.navbar-toggler {
+  position: relative;
+  display: block;
+  padding: 0.25rem 0.75rem;
+  height: 40px;
+  width: 65px;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: transform $toggler-duration;
+  background-color: $toggler-bg;
+
+  /* middle line */
+  .icon {
+    position: absolute;
+    top: 50%; left: 50%;
+    display: block;
+    width: $lines-icon-witdh;
+    height: $lines-icon-height;
+    background-color: $toggler;
+    /* trickz for centering */
+    transform: translateX(-50%) translateY(-50%);
+    /* top and bottom lines */
+    &::before, &::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      display: block;
+      width: $lines-icon-witdh;
+      height: $lines-icon-height;
+      background-color: $toggler;
+      transition: transform $toggler-duration;
+    }
+
+    // Define space beetwin top & bottom lines
+    &::before {transform: translateY(-9px);}
+    &::after {transform: translateY(9px);}
+  }
+}
+
+.navbar-toggler{
+  /* cross transformation from center **/
+  .icon::before,
+  .icon::after {transform-origin: 50% 50%;}
+  /* transition middle line */
+  .icon {transition: background 0.1s;}
+}
+
+.navbar-toggler.is-opened{
+  /* Hide middle line via bg: transparent & show cross via translate */
+  .icon {background: transparent;}
+  .icon::before {transform: translateY(0) rotate(45deg);}
+  .icon::after {transform: translateY(0) rotate(-45deg);}
+}

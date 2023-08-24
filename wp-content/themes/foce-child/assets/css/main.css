@@ -1,0 +1,553 @@
+@charset "UTF-8";
+/* General Colors */
+/* Fonts */
+/* Hamburger menu */
+.site-header .navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  background-color: #FFD5A2;
+  /* Main button */
+}
+.site-header .navbar .site-title {
+  font-family: "Quicksand", sans-serif;
+  font-size: 21px;
+  text-decoration: none;
+}
+.site-header .navbar .navbar-toggler-wrapper {
+  position: absolute;
+  right: 132px;
+}
+.site-header .navbar .navbar-toggler {
+  position: relative;
+  display: block;
+  padding: 0.25rem 0.75rem;
+  height: 40px;
+  width: 65px;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: transform 0.5s;
+  background-color: transparent;
+  /* middle line */
+}
+.site-header .navbar .navbar-toggler .icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 40px;
+  height: 1px;
+  background-color: black;
+  /* trickz for centering */
+  transform: translateX(-50%) translateY(-50%);
+  /* top and bottom lines */
+}
+.site-header .navbar .navbar-toggler .icon::before, .site-header .navbar .navbar-toggler .icon::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 40px;
+  height: 1px;
+  background-color: black;
+  transition: transform 0.5s;
+}
+.site-header .navbar .navbar-toggler .icon::before {
+  transform: translateY(-9px);
+}
+.site-header .navbar .navbar-toggler .icon::after {
+  transform: translateY(9px);
+}
+.site-header .navbar .navbar-toggler {
+  /* cross transformation from center **/
+  /* transition middle line */
+}
+.site-header .navbar .navbar-toggler .icon::before,
+.site-header .navbar .navbar-toggler .icon::after {
+  transform-origin: 50% 50%;
+}
+.site-header .navbar .navbar-toggler .icon {
+  transition: background 0.1s;
+}
+.site-header .navbar .navbar-toggler.is-opened {
+  /* Hide middle line via bg: transparent & show cross via translate */
+}
+.site-header .navbar .navbar-toggler.is-opened .icon {
+  background: transparent;
+}
+.site-header .navbar .navbar-toggler.is-opened .icon::before {
+  transform: translateY(0) rotate(45deg);
+}
+.site-header .navbar .navbar-toggler.is-opened .icon::after {
+  transform: translateY(0) rotate(-45deg);
+}
+.site-header .menu-overlay {
+  position: absolute;
+  z-index: 1;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  padding-top: 43px;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s, visibility 0.6s;
+  background: #FFF5E9;
+}
+.site-header .menu-overlay::before {
+  content: url("../img/orchid.png");
+  position: absolute;
+  left: -56px;
+  top: 7%;
+}
+.site-header .menu-overlay::after {
+  content: url("../img/hibiscus.png");
+  position: absolute;
+  bottom: -290px;
+  right: -325px;
+}
+.site-header .menu-overlay .menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 60px;
+}
+.site-header .menu-overlay .menu::before {
+  content: url("../img/cat-yellow-menu.png");
+  position: absolute;
+  left: 8%;
+  bottom: 16%;
+  animation: flotter 3.2s ease-in-out 0.2s infinite;
+}
+.site-header .menu-overlay .menu::after {
+  content: url("../img/random_flower.png");
+  position: absolute;
+  right: -28px;
+  top: 35%;
+}
+.site-header .menu-overlay .menu .logo-small {
+  margin-bottom: 40px;
+}
+.site-header .menu-overlay .menu .nav {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  margin: 0;
+  padding-left: 0;
+  font-family: "Roboto Mono", monospace;
+  font-size: 64px;
+  list-style: none;
+  text-align: center;
+}
+.site-header .menu-overlay .menu .nav::before {
+  content: url("../img/cat-purple-menu.png");
+  animation: flotter 3s ease-in-out 0s infinite;
+  position: absolute;
+  left: -36%;
+  top: -16%;
+}
+.site-header .menu-overlay .menu .nav::after {
+  content: url("../img/sunflower-m.png");
+  position: absolute;
+  right: -54%;
+  top: -40%;
+}
+.site-header .menu-overlay .menu .nav .nav-item:hover {
+  text-shadow: 0px 0px 14px #FF5C00;
+}
+.site-header .menu-overlay .menu .nav .nav-item .nav-link {
+  text-decoration: none;
+}
+.site-header .menu-overlay .menu .nav .nav-item .nav-link:hover {
+  color: black;
+}
+.site-header .menu-overlay .menu-footer {
+  padding-bottom: 15px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.site-header .menu-overlay .menu-footer::before {
+  content: url("../img/flower.png");
+  position: absolute;
+  left: 15%;
+  top: 50%;
+}
+.site-header .menu-overlay .menu-footer::after {
+  content: url("../img/cat-black-menu.png");
+  position: absolute;
+  right: 13%;
+  bottom: 41%;
+  animation: flotter 2.8s ease-in-out 0.4s infinite;
+}
+.site-header #menu-overlay.show {
+  opacity: 1;
+  visibility: visible;
+  /* width: 100%;
+  height: 100%; */
+}
+
+/* Main button */
+.navbar-toggler-wrapper {
+  position: absolute;
+  right: 132px;
+}
+
+.navbar-toggler {
+  position: relative;
+  display: block;
+  padding: 0.25rem 0.75rem;
+  height: 40px;
+  width: 65px;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: transform 0.5s;
+  background-color: transparent;
+  /* middle line */
+}
+.navbar-toggler .icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 40px;
+  height: 1px;
+  background-color: black;
+  /* trickz for centering */
+  transform: translateX(-50%) translateY(-50%);
+  /* top and bottom lines */
+}
+.navbar-toggler .icon::before, .navbar-toggler .icon::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 40px;
+  height: 1px;
+  background-color: black;
+  transition: transform 0.5s;
+}
+.navbar-toggler .icon::before {
+  transform: translateY(-9px);
+}
+.navbar-toggler .icon::after {
+  transform: translateY(9px);
+}
+
+.navbar-toggler {
+  /* cross transformation from center **/
+  /* transition middle line */
+}
+.navbar-toggler .icon::before,
+.navbar-toggler .icon::after {
+  transform-origin: 50% 50%;
+}
+.navbar-toggler .icon {
+  transition: background 0.1s;
+}
+
+.navbar-toggler.is-opened {
+  /* Hide middle line via bg: transparent & show cross via translate */
+}
+.navbar-toggler.is-opened .icon {
+  background: transparent;
+}
+.navbar-toggler.is-opened .icon::before {
+  transform: translateY(0) rotate(45deg);
+}
+.navbar-toggler.is-opened .icon::after {
+  transform: translateY(0) rotate(-45deg);
+}
+
+/* All Animations Keyframes */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/*
+@keyframes fade-out {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+*/
+@keyframes fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-250px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes words-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes flotter {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+/* Animations Class declarations */
+.fade-in-down {
+  animation: fade-in-down 2s forwards;
+}
+
+.fade-in-up {
+  animation: fade-in-up 2s forwards, flotter 3.2s ease-in-out 2s infinite;
+}
+
+/* Animation title-reveal */
+.title-reveal-container {
+  overflow: hidden;
+}
+
+.word {
+  display: inline-block;
+  transform: translateY(106px);
+}
+
+/* Appliquer l'animation à chaque mot */
+/* .title-reveal est généré par JS lorsque .title-reveal-scope (le parent) entre dans le viewport.
+** Cela permet de lancer l'animation au bon moment et de contrôler jusqu'a deux mots.
+*/
+.title-reveal .word:nth-child(1) {
+  animation: words-up 1s forwards 1.5s;
+}
+
+.title-reveal .word:nth-child(2) {
+  animation: words-up 1s forwards 2s;
+}
+
+/* Fade-in apparition loading on scroll */
+.fade-in {
+  opacity: 0;
+  transition: opacity 1.4s ease-out; /* animation douce */
+}
+
+.fade-in.fade-in-visible {
+  opacity: 1;
+}
+
+/* Rotate flowers for Home page */
+.story h2::after,
+.story__article::after,
+.studio h2::before,
+.studio h2::after,
+.oscars::before,
+.oscars::after,
+.site-footer::before,
+.site-footer::after,
+.site-footer ul::after,
+.menu-overlay::after,
+.nav::after,
+.menu-overlay::before,
+.menu::after,
+.menu-footer::before {
+  transform-origin: center center;
+  animation: rotate 16s linear infinite;
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.hero .banner {
+  width: 100%;
+}
+.hero .banner .banner-video {
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+.hero .main-logo {
+  position: absolute;
+  margin-top: -8%;
+  height: 480px;
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Story */
+.story {
+  margin-top: 55px;
+}
+
+.story__article h2 {
+  background-image: url("../img/purple_story_bg.png");
+  padding: 40px 80px !important;
+}
+.story__article h2::before {
+  z-index: 0 !important;
+}
+
+/* Characters */
+.my-characters {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 100%;
+  margin-top: 150px;
+  margin-bottom: 96px;
+}
+.my-characters h3 {
+  background-image: url("../img/orange_bg_characters.png");
+  padding: 40px 80px;
+  background-size: cover;
+}
+.my-characters .swiper {
+  width: 100%;
+  padding-right: 30px;
+}
+.my-characters .swiper .characters-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.my-characters .swiper .characters-slide .characters-title {
+  text-align: center;
+}
+
+/* Place */
+.place {
+  background-image: url("../img/Koukaki-section-lieu.png") !important;
+  position: relative;
+}
+.place div {
+  padding-left: 100px;
+}
+.place div h3 {
+  z-index: 1;
+  background-size: auto !important;
+  padding: 23px 80px;
+  margin-bottom: 0 !important;
+  margin-left: -52px;
+}
+.place div p {
+  padding-left: 32px !important;
+}
+.place .clouds {
+  position: absolute;
+  top: 65px;
+  right: 93px;
+  display: flex;
+  flex-direction: row-reverse !important;
+  gap: 96px;
+}
+.place .clouds .big-cloud, .place .clouds .little-cloud {
+  filter: blur(15px);
+}
+.place .clouds .little-cloud {
+  padding-top: 180px;
+}
+
+/* Studio */
+.studio h2 {
+  background-image: url("../img/purple_studio_bg.png") !important;
+  padding: 45px;
+}
+.studio div {
+  margin-top: 20px !important;
+}
+.studio div::before {
+  top: 47% !important;
+}
+
+/* Oscars */
+.oscars {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  margin-top: 200px;
+  margin-bottom: 15px;
+}
+.oscars h3 {
+  background-image: url("../img/orange_bg_oscars.png");
+  padding: 1.6em 2em;
+  line-height: 52px;
+  letter-spacing: -0.84px;
+  text-shadow: 0px 4px rgba(0, 0, 0, 0.25);
+  text-align: left;
+}
+.oscars img {
+  padding-top: 50px;
+}
+.oscars::before {
+  content: url("../img/Sunflower-m.png") !important;
+  position: absolute;
+  left: 8em;
+  top: -12em;
+}
+.oscars::after {
+  content: url("../img/orchid.png");
+  position: absolute;
+  right: -95px;
+  top: -220px;
+}
+
+/*
+
+*/
+/* Footer */
+.site-footer {
+  flex-direction: column;
+}
+
+.site-footer::before,
+.site-footer::after {
+  display: none;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .banner-video {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
